@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/background_blue"
+	tools:context=".MainActivity">
+
+	<ProgressBar
+		android:id="@+id/Loading"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:visibility="gone" />
+
+	<RelativeLayout
+		android:id="@+id/Home"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="visible">
+
+		<ImageView
+			android:id="@+id/background"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scaleType="centerCrop"
+			android:src="@color/background_blue" />
+
+		<TextView
+			android:id="@+id/Prompt"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:text="Pułtusk"
+			android:textAlignment="center"
+			android:textColor="@color/white"
+			android:textSize="40sp" />
+
+		<LinearLayout
+			android:id="@+id/EditCityPane"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/Prompt"
+			android:orientation="horizontal"
+			android:weightSum="5">
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/SearchField"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_margin="10dp"
+				android:layout_weight="4.5"
+				android:background="@android:color/transparent"
+				android:hint="Wyszukaj miasto"
+				android:padding="5dp"
+				android:textColorHint="@color/white"
+				app:hintTextColor="@color/white"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				tools:layout_editor_absoluteY="43dp">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/EditCity"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="@android:color/transparent"
+					android:importantForAutofill="no"
+					android:inputType="text"
+					android:singleLine="true"
+					android:textColor="@color/white"
+					android:textSize="14sp" />
+			</com.google.android.material.textfield.TextInputLayout>
+
+			<ImageView
+				android:id="@+id/SearchImg"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_margin="10dp"
+				android:layout_weight="0.5"
+				android:background="@android:color/transparent"
+				android:src="@drawable/search_icon"
+				app:tint="@color/white" />
+
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/temperature"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/EditCityPane"
+			android:layout_margin="10dp"
+			android:gravity="center_horizontal"
+			android:text="20°"
+			android:textColor="@color/white"
+			android:textSize="70dp" />
+
+		<ImageView
+			android:id="@+id/temperatureIcon"
+			android:layout_width="230dp"
+			android:layout_height="230dp"
+			android:layout_below="@id/temperature"
+			android:layout_centerHorizontal="true"
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="2dp"
+			android:layout_marginEnd="10dp"
+			android:layout_marginBottom="10dp"
+			android:src="@drawable/sun" />
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_above="@+id/FutureWeather"
+			android:layout_margin="8dp"
+			android:layout_marginBottom="10dp"
+			android:text="Pogoda na najbliższe dni"
+			android:textColor="@color/white"
+			android:textStyle="bold" />
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/FutureWeather"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:orientation="horizontal"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+	</RelativeLayout>
+
+
+</RelativeLayout>
